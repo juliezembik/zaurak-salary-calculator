@@ -11,6 +11,8 @@ console.log('JS Ready!');
 
 function submitClick(){
     console.log('Button Clicked!');
+    clearInputs();
+    
     let subFirstName = $('#firstName').val();
     let subLastName = $('#lastName').val();
     let subEmpId = $('#empId').val();
@@ -22,5 +24,22 @@ function submitClick(){
     $('#submittedEmpId').append(`<tr><td>${subEmpId}</td></tr>`);
     $('#submittedEmpTitle').append(`<tr><td>${subEmpTitle}</td></tr>`);
     $('#submittedEmpSalary').append(`<tr><td>${subEmpSalary}</td></tr>`);
+    
 }
 
+function addMonthlySalary(){
+    let num1 = 0 + $('#empSalary').val();
+    let monthSalary =
+    if( let empMonthSalary > 15000){
+        $('body').css('background-color', 'red')
+    }
+    else ()
+}
+
+function clearInputs(){
+    $('#firstName').empty('');
+    $('#lastName').empty('');
+    $('#empId').empty('');
+    $('#empTitle').empty('');
+    $('#empSalary').empty('');
+}
