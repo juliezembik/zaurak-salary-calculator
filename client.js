@@ -51,7 +51,15 @@ function addEmployee(){
     console.log('monthly salary', monthSalary);
     let el = $('#monthly-total');
     el.empty();
-    el.append(monthSalary);
+    el.append(monthSalary.toFixed(2));
+
+    if(monthSalary > maxSalary){
+    el.css('color', 'white');
+    el.css('background-color', 'red');
+    } else{
+        el.css('color', 'black');
+        el.css('background-color', 'white');
+    }
 
     clearInputs();
 }
