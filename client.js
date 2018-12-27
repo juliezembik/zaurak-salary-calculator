@@ -19,24 +19,39 @@ function addEmployee(){
     empId: $('#empId').val(),
     empTitle: $('#empTitle').val(),
     empSalary: $('#empSalary').val(),
-    }
+    } //end add new employee
 
     employees.push(newEmployee);
-    console.log('adding', newEmployee);
-    
-
-    // $('#submittedFirstName').append(`<tr><td>${subFirstName}</td></tr>`);
-    // $('#submittedLastName').append(`<tr><td>${subLastName}</td></tr>`);
-    // $('#submittedEmpId').append(`<tr><td>${subEmpId}</td></tr>`);
-    // $('#submittedEmpTitle').append(`<tr><td>${subEmpTitle}</td></tr>`);
-    // $('#submittedEmpSalary').append(`<tr><td>${subEmpSalary}</td></tr>`);
-
+    console.log('adding', newEmployee); 
+    let table = $('#employeesOutput');
+    table.empty();
+    table.append(`
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Employee ID</th>
+                <th>Title</th>
+                <th>Annual Salary</th>
+            </tr>
+    `);
     let totalSalary = 0;
     for(employee of employees){
         totalSalary += Number(employee.empSalary);
-    }
+        table.append(`
+                    <tr>
+                        <td>` + employee.firstName + `</td>
+                        <td>` + employee.lastName + `</td>
+                        <td>` + employee.empId + `</td>
+                        <td>` + employee.empTitle + `</td>
+                        <td>` + employee.empSalary + `</td>
+                        `); //end table append for employee
+    } //end for
     console.log('total salary: ', totalSalary);
-    
+    let monthSalary = Math.ceil(totalSalary/12);
+    console.log('monthly salary', monthSalary);
+    let el = $('#monthly-total');
+    el.empty();
+    el.append(monthSalary);
 
     clearInputs();
 }
